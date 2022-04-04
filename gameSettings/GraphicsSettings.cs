@@ -1,4 +1,4 @@
-/* HANDLES ALL GRAPHICS SETTINGS
+/* HANDLES ALL GRAPHICS SETTINGS - ASSIGN TO EMPTY GAMEOBJECT
  *
  * This should be the only script that can modify the actual graphics settings in Unity.
  * It's designed to make changing the settings from another script very simple, since you just have to call the
