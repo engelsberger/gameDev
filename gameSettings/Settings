@@ -1,0 +1,37 @@
+/* SETTINGS CLASS - DO NOT ASSIGN
+ *
+ * This class holds all valuable settings for a game.
+ */
+
+
+public class Settings
+{
+    public GraphicQuality quality;
+    public Resolution resolution;
+    public RefreshRate refreshRate;
+    public int fullScreen;  //1 .. true, 0 .. false, -1 .. notAssigned
+    public int vSync;       //1 .. true, 0 .. false, -1 .. notAssigned
+    public AntiAliasing antiAliasing;
+
+    //Set Default values
+    public Settings()
+    {
+        quality = GraphicQuality.notAssigned;
+        resolution = new Resolution(ResolutionType.notAssigned, -1, -1);
+        refreshRate = new RefreshRate(RefreshRateType.notAssigned, -1);
+        fullScreen = -1;
+        vSync = -1;
+        antiAliasing = new AntiAliasing(AntiAliasingType.notAssigned, -1, PostProcessLayer.Antialiasing.None);
+    }
+
+    //Update Settings: Create a Settings x = new Settings(), set the values that need to be changed and call this function which updates only the values that were modified.
+    public void UpdateSettings(Settings newSettings)
+    {
+        if (newSettings.quality != GraphicQuality.notAssigned) quality = newSettings.quality;
+        if (newSettings.resolution.type != ResolutionType.notAssigned) resolution = newSettings.resolution;
+        if (newSettings.refreshRate.type != RefreshRateType.notAssigned) refreshRate = newSettings.refreshRate;
+        if (newSettings.fullScreen != -1) fullScreen = newSettings.fullScreen;
+        if (newSettings.vSync != -1) vSync = newSettings.vSync;
+        if (newSettings.antiAliasing.type != AntiAliasingType.notAssigned) antiAliasing = newSettings.antiAliasing;
+    }
+}
